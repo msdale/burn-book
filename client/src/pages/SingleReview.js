@@ -4,18 +4,18 @@ import { useParams } from 'react-router-dom';
 import ReactionList from '../components/ReactionList';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHT } from '../utils/queries';
+import { QUERY_REVIEW} from '../utils/queries';
 import Auth from '../utils/auth';
 import ReactionForm from '../components/ReactionForm';
 
-const SingleThought = (props) => {
-  const { id: thoughtId } = useParams();
+const SingleReview = (props) => {
+  const { id: reviewId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId },
+  const { loading, data } = useQuery(QUERY_REVIEW, {
+    variables: { id: reviewId },
   });
 
-  const thought = data?.thought || {};
+  const review = data?.review || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -26,21 +26,21 @@ const SingleThought = (props) => {
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {thought.username}
+            {review.username}
           </span>{' '}
-          thought on {thought.createdAt}
+          review on {review.createdAt}
         </p>
         <div className="card-body">
-          <p>{thought.thoughtText}</p>
+          <p>{review.reviewText}</p>
         </div>
       </div>
 
-      {thought.reactionCount > 0 && (
-        <ReactionList reactions={thought.reactions} />
+      {review.reactionCount > 0 && (
+        <ReactionList reactions={review.reactions} />
       )}
-      {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      {Auth.loggedIn() && <ReactionForm reviewId={review._id} />}
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleReview;
