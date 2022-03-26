@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bulma/css/bulma.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
