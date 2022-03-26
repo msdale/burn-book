@@ -19,6 +19,11 @@ import SingleReview from './pages/SingleReview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
+//triggers cart/payment process
+import { StoreProvider } from './utils/GlobalState';
+// import Success from './pages/Success';
+// import OrderHistory from './pages/OrderHistory';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -43,18 +48,20 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/review/:id" component={SingleReview} />
+          <StoreProvider>
+            <Header />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/profile/:username?" component={Profile} />
+                <Route exact path="/review/:id" component={SingleReview} />
 
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
+                <Route component={NoMatch} />
+              </Switch>
+            </div>
+          </StoreProvider>
           <Footer />
         </div>
       </Router>
