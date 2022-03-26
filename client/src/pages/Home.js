@@ -16,42 +16,6 @@ import ReviewForm from '../components/ReviewForm'
 
 export default function Home() {
 
-    const Nav = () => {
-        return (
-            <div className='navbar-menu'>
-                <div className="navbar-brand">
-                    <a className="navbar-item" href="#header">
-                        <img src={Logo} alt="logo"/>
-                        SPARKLING SPACES
-                    </a>
-                </div>
-                <div className='navbar-start'>
-                    <a className='navbar-item' href='#about'>
-                        About
-                    </a>
-                    <a className='navbar-item' href='#rates'>
-                        Rates
-                    </a>
-                    <a className='navbar-item' href='#testimonials'>
-                        Testimonials
-                    </a>
-                </div>
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                            <button className="button is-primary">
-                                Sign up
-                            </button>
-                            <Link to='login'><button className="button is-info">
-                                Log in
-                            </button></Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
     const Header = () => {
         return (
             <div id="header" className="columns is-mobile is-vcentered">
@@ -66,7 +30,7 @@ export default function Home() {
                 </div>
                 <div className="column is-two-thirds is-centered">
                     <figure className="image is-5by3 m-6">
-                        <img src={HeaderImg} alt="clean kitchen counter"/>
+                        <img src={HeaderImg} alt="cleaning supplies"/>
                     </figure>
                 </div>
             </div>   
@@ -161,15 +125,13 @@ export default function Home() {
     }
 
 
-    
+
     return (
         <div id="landing-body">
-            <Nav/>
             <Header/>
             <About/>
             <Rates/>
             <Testimonials/>
-            <ReviewForm/>
         </div>
     )
 
