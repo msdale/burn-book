@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <header>
-      <nav className="navbar">
+      <nav className="navbar is-dark">
         {Auth.loggedIn() ? (
           <>
             <div className='navbar-brand'>
@@ -21,6 +21,9 @@ const Header = () => {
             </div>
             <div className='navbar-menu is-active'>
               <div className='navbar-end'>
+              <Link to="/profile" className='navbar-item'>
+                  Profile
+                </Link>
                 <Link to="/" onClick={logout} className='navbar-item'>
                   Logout
                 </Link>
