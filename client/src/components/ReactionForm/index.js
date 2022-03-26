@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { ADD_REACTION } from '../../utils/mutations';
 
-const ReactionForm = ({ thoughtId }) => {
+const ReactionForm = ({ reviewId }) => {
   const [reactionBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addReaction, { error }] = useMutation(ADD_REACTION);
@@ -19,9 +19,9 @@ const ReactionForm = ({ thoughtId }) => {
     event.preventDefault();
 
     try {
-      // add reaction to thought in database
+      // add reaction to review in database
       await addReaction({
-        variables: { reactionBody, thoughtId }
+        variables: { reactionBody, reviewId }
       });
 
       // clear form value
@@ -40,7 +40,7 @@ const ReactionForm = ({ thoughtId }) => {
       </p>}
       <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
         <textarea
-          placeholder="Leave a reaction to this thought..."
+          placeholder="Leave a reaction to this review..."
           value={reactionBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}

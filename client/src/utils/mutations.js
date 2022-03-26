@@ -38,11 +38,11 @@ export const ADD_FRIEND = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const ADD_REVIEW = gql`
+  mutation addReview($reviewText: String!) {
+    addReview(reviewText: $reviewText) {
       _id
-      thoughtText
+      reviewText
       createdAt
       username
       reactionCount
@@ -54,8 +54,8 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_REACTION = gql`
-  mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
-    addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+  mutation addReaction($reviewId: ID!, $reactionBody: String!) {
+    addReaction(reviewId: $reviewId, reactionBody: $reactionBody) {
       _id
       reactionCount
       reactions {
