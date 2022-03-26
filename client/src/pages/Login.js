@@ -84,11 +84,11 @@ const Login = (props) => {
               </div>
               <div className='field'>
                 <p className='control'>
-                  <button className="button is-medium is-info" type="submit">
+                  <button className="button is-info" type="submit">
                     Login
                   </button>
                 </p>
-                <a href="/signup">No account? Sign up today!</a>
+                <a href="/signup" className="has-text-link is-underlined">No account? Sign up today!</a>
               </div>
           </form>
             {error && <div>Login failed</div>}   
