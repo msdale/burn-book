@@ -124,8 +124,6 @@ export default function Home() {
         )
     }
 
-
-
     return (
         <div id="landing-body">
             <Header/>

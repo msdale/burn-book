@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div className='page-container'>
             <div className='content-wrap'>
-                <div className='footer has-text-centered'>
+                <div className='footer has-text-centered is-dark'>
                     <div className='content has-text-centered'>
                         <div className="columns is-mobile is-centered">
                             <div className="column">
