@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_REVIEW} from '../../utils/mutations';
+import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
 
-const ThoughtForm = () => {
-  const [thoughtText, setText] = useState('');
+const ReviewForm = () => {
+  const [reviewText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addReview, { error }] = useMutation(ADD_REVIEW, {
+    update(cache, { data: { addReview } }) {
       try {
         // could potentially not exist yet, so wrap in a try...catch
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { reviews } = cache.readQuery({ query: QUERY_REVIEWS });
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] }
+          query: QUERY_REVIEWS,
+          data: { reviews: [addReview, ...reviews] }
         });
       } catch (e) {
         console.error(e);
       }
 
-      // update me object's cache, appending new thought to the end of the array
+      // update me object's cache, appending new review to the end of the array
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
         cache.writeQuery({
           query: QUERY_ME,
-          data: { me: { ...me, thoughts: [...me.thoughts, addThought] } }
+          data: { me: { ...me, reviews: [...me.reviews, addReview] } }
         });
       } catch (e) {
         console.error(e);
@@ -43,9 +43,9 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      // add thought to database
-      await addThought({
-        variables: { thoughtText }
+      // add review to database
+      await addReview({
+        variables: { reviewText }
       });
 
       // clear form value
@@ -65,8 +65,8 @@ const ThoughtForm = () => {
       </p>
       <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
         <textarea
-          placeholder="Here's a new thought..."
-          value={thoughtText}
+          placeholder="Here's my new review..."
+          value={reviewText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -78,4 +78,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default ReviewForm;
