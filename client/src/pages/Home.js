@@ -39,7 +39,7 @@ export default function Home() {
 
     const About = () => {
         return (
-            <div id="about" className="section is-large has-background-info-light">
+            <div id="about" className="section is-medium has-background-info-light">
                 <div className='title is-2 has-text-centered'>
                 Sparkling Spaces provides residential <br/> cleaning services to the Orlando, FL area!
                 </div>
@@ -72,7 +72,7 @@ export default function Home() {
 
     const Rates = () => {
         return (
-            <div id="rates" className="section is-large">
+            <div id="rates" className="section is-medium">
                 <div className='title is-2 has-text-centered'>Rates</div>
                 <div className='subtitle is-5 has-text-centered'>
                 Price is an accurate estimate based on standard scope of work. Upon booking, a maid will work with you to create a custom-made cleaning list to make sure your priorities are met.
@@ -90,7 +90,7 @@ export default function Home() {
 
     const Testimonials = () => {
         return (
-            <div id="testimonials" className="section is-large has-background-info-light">
+            <div id="testimonials" className="section is-medium has-background-info-light">
                 <div className='title is-2 has-text-centered'>
                 What Our Customers Say
                 </div>
