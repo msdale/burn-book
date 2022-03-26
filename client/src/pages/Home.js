@@ -3,8 +3,8 @@ import {Link } from 'react-router-dom';
 import '../index.css';
 
 // Image Imports!
-import Logo from '../assets/logo/logo.png';
-import HeaderImg from '../assets/header/clean.jpg';
+import Logo from '../assets/Header/logo.png';
+import HeaderImg from '../assets/Header/clean.jpg';
 import About1 from '../assets/about/about1.png';
 import About2 from '../assets/about/about2.png';
 import About3 from '../assets/about/about3.png';
