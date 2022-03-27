@@ -1,83 +1,83 @@
-import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Profile.css"
 
-import ReviewList from '../components/ReviewList';
-import FriendList from '../components/FriendList';
+// import ReviewList from '../components/ReviewList';
+// import FriendList from '../components/FriendList';
+// import ReviewForm from '../components/ReviewForm';
 
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND } from '../utils/mutations';
+// import { useQuery, useMutation } from '@apollo/client';
+// import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// import { ADD_FRIEND } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+//images
+import DashboardImage from "../assets/profile/profile.png"
+
 const Profile = (props) => {
-  const { username: userParam } = useParams();
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-
-  const [addFriend] = useMutation(ADD_FRIEND);
-
-  const user = data?.me || data?.user || {};
-
-  // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
-
-  const handleClick = async () => {
-    try {
-      await addFriend({
-        variables: { id: user._id }
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
+  var loggedIn = Auth.loggedIn()
+  const navigate = useNavigate()
+  console.log("LOGIN STATUS " + loggedIn);
+  if (!loggedIn) { navigate("/login") }
+  
   return (
-    <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Welcome Back {user.username}!
-        </h2>
-        {userParam && (
-          <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
-          </button>
-        )}
-      </div>
-
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          <ReviewList
-            reviews={user.reviews}
-            title={`${user.username}'s reviews...`}
-          />
+    <main>
+      <div className='page-container'>
+        <section className="hero is-small is-light">
+          <div className="hero-body">
+            <img src={DashboardImage} alt="dashboard logo"></img>
+          </div>
+        </section>
+        <hr />
+        <div className='scheduled-cleanings-container'>
+          <h1 className='title'>
+            Appointment Requests
+          </h1>
+          <div className='scheduled-cleanings-list'>
+            <div className='calendar'>
+            </div>
+            <form>
+            <div className="field ">
+              <div className="field-label">
+              <p className="control">
+                    <input
+                      className="input"
+                      placeholder="date"
+                      name="date"
+                      type="date"
+                      id="date"
+                    />
+                  </p>
+                  <button className="button is-primary">
+                      Submit
+                    </button>
+              </div>
+                </div>
+            </form>
+          </div>
         </div>
-
-        <div className="col-12 col-lg-3 mb-3">
-          <FriendList
-            username={user.username}
-            friendCount={user.friendCount}
-            friends={user.friends}
-          />
+        <hr />
+        <div className='maid-reviews-container'>
+          <h1 className='title'>
+            My Requests
+          </h1>
+          <div className='maid-reviews-list'>
+            <div>
+              
+              </div>
+          </div>
         </div>
-      </div>
-    </div>
+        <hr />
+        <div className='maid-rating-container'>
+          <h1 className='title'>
+            Reviews Left
+          </h1>
+          <div className='maid-rating-list'>
+          </div>
+        </div>
+      </div>    
+    </main>
   );
 };
 
