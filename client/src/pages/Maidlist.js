@@ -39,8 +39,9 @@ const Maidlist = () => {
 
 					<div className="content">
 						Clean space, clean mind. Book now for a zen space.
-						<br/>
 						<br />
+						<br />
+						<a href="/maidinfo" className="button is-danger is-rounded more-info" onClick="<BookNow/>">More Info</a>
 						<a href="/maidinfo" className="button is-danger is-rounded" onClick="<BookNow/>">Book Now</a>
 					</div>
 				</div>
@@ -67,14 +68,15 @@ const Maidlist = () => {
 
 					<div className="content">
 						Clean space, clean mind. Book now for a zen space.
-						<br/>
 						<br />
+						<br />
+						<a href="/maidinfo" className="button is-danger is-rounded more-info" onClick="<BookNow/>">More Info</a>
 						<a href="/maidinfo" className="button is-danger is-rounded" onClick="<BookNow/>">Book Now</a>
 					</div>
 				</div>
 			</div>
 			{/* card3 */}
-						<div className="card">
+			<div className="card">
 				<div className="card-image">
 					<figure className="image is-4by3">
 						<img src={Maid3} alt="maid" />
@@ -95,10 +97,11 @@ const Maidlist = () => {
 
 					<div className="content">
 						Clean space, clean mind. Book now for a zen space.
-						<br/>
 						<br />
-						<a href="/maidinfo" className="button is-danger is-rounded" onClick="<BookNow/>">Book Now</a>
-					</div>
+						<br />
+						<a href="/maidinfo" className="button is-danger is-rounded more-info" onClick="<BookNow/>">More Info</a>
+						<a href="/maidinfo" className="button is-danger is-rounded" onClick="<BookNow/>">Book Now</a>					
+						</div>
 				</div>
 			</div>
 		</div>
