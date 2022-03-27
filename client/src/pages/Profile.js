@@ -49,13 +49,11 @@ const Profile = (props) => {
                       id="date"
                     />
                   </p>
-                  <button className="button is-info">
+                  <button className="button is-primary">
                       Submit
                     </button>
               </div>
-                  
                 </div>
-                
             </form>
           </div>
         </div>
