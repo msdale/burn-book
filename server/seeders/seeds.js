@@ -74,6 +74,8 @@ db.once('open', async () => {
   /*************/
   /*  MAIDS    */
   /*************/
+
+
   const maidSeed = [
     {
       name: 'Bubbly Brenda',
@@ -97,6 +99,9 @@ db.once('open', async () => {
     },
   ];
 
+  for (let i = 0; i < maidSeed.length; i += 1) {
+    const maid = await Maid.create(maidSeed[i]);
+  }
   console.log('all done!');
   process.exit(0);
 });
