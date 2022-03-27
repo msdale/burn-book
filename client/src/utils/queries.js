@@ -99,3 +99,25 @@ export const QUERY_ME_BASIC = gql`
   }
 `;
 
+export const QUERY_MAIDS = gql`
+  query Maids {
+    maids {
+      maid_username
+      name
+    }
+  }
+`;
+
+export const QUERY_MAID = gql`
+query Maids($maidUsername: String!) {
+  maid(maid_username: $maidUsername) {
+    maid_username
+    reviews {
+      maid_username
+      username
+      reviewText
+      createdAt
+    }
+  }
+}
+`;
