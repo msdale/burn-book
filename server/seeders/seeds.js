@@ -1,7 +1,7 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Review, User } = require('../models');
+const { Review, User, Maid } = require('../models');
 
 db.once('open', async () => {
   await Review.deleteMany({});
@@ -69,6 +69,32 @@ db.once('open', async () => {
       { runValidators: true }
     );
   }*/
+
+  /*************/
+  /*  MAIDS    */
+  /*************/
+  const maidSeed = [
+    {
+      name: 'Bubbly Brenda',
+      username: 'bbrenda',
+    },
+    {
+      name: 'Cleaning Cindy',
+      username: 'ccindy',
+    },
+    {
+      name: 'Sparkling Sarah',
+      username: 'ssarah',
+    },
+    {
+      name: 'Mopping Mary',
+      username: 'mmary',
+    },
+    {
+      name: 'Dust-Away Daryl',
+      username: 'ddaryl',
+    },
+  ];
 
   console.log('all done!');
   process.exit(0);
