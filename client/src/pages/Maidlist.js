@@ -3,9 +3,9 @@ import React from "react";
 import "./Maidlist.css"
 
 //import images
-import Maid1 from "../assets/card/maid1.jpg"
-import Maid2 from "../assets/card/maid2.jpg"
-import Maid3 from "../assets/card/maid3.jpg"
+// import Maid1 from "../assets/card/maid1.jpg"
+// import Maid2 from "../assets/card/maid2.jpg"
+// import Maid3 from "../assets/card/maid3.jpg"
 
 import MaidCard from "../components/MaidCard";
 
