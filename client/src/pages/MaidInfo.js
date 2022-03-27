@@ -1,8 +1,17 @@
 import React from 'react'
 
+import ReivewList from '.../components/ReviewList';
+import ReviewForm from '../components/ReactionForm';
+
 const MaidInfo = () => {
   return (
-    <div>This is the maid info</div>
+    <div>
+      <div>This is the maid info</div>
+      <ReviewForm/>
+      <h2>My Reviews:</h2>
+      <ReivewList/>
+    
+    </div>
   )
 }
 
