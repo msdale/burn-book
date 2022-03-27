@@ -124,7 +124,7 @@ db.once('open', async () => {
     });
 
     await Maid.updateOne(
-      { username: maid_username },
+      { maid_username: maid_username },
       { $push: { reviews: createdReview } }
     );
     await User.updateOne(
