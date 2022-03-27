@@ -4,7 +4,7 @@ import "./Profile.css"
 
 // import ReviewList from '../components/ReviewList';
 // import FriendList from '../components/FriendList';
-// import ReviewForm from '../components/ReviewForm';
+import ReviewForm from '../components/ReviewForm';
 
 // import { useQuery, useMutation } from '@apollo/client';
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -72,6 +72,7 @@ const Profile = (props) => {
         <div className='maid-rating-container'>
           <h1 className='title'>
             Reviews Left
+            <ReviewForm/>
           </h1>
           <div className='maid-rating-list'>
           </div>
