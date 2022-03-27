@@ -1,9 +1,4 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
 import "./Maidlist.css"
 
 //import images
@@ -12,8 +7,6 @@ import Maid2 from "../assets/card/maid2.jpg"
 import Maid3 from "../assets/card/maid3.jpg"
 
 //import page
-
-
 
 const Maidlist = () => {
 	return (
