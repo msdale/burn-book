@@ -5,3 +5,7 @@
 .control {
     margin-bottom: 25px;
 }
+
+.title {
+    display: inline;
+}
