@@ -42,7 +42,6 @@ const Profile = (props) => {
             <div className='calendar'>
             </div>
             <div>
-              
             </div>
             <form>
               <div className="field date-line">
