@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Maidlist from './pages/Maidlist';
 import MaidInfo from './pages/MaidInfo';
+import MaidDash from './pages/MaidDashboard';
 
 
 const httpLink = createHttpLink({
@@ -57,6 +58,7 @@ function App() {
               <Route exact path="/review/:id" element={<SingleReview/>} />
               <Route exact path="/maidlist" element={<Maidlist/>} />
               <Route exact path="/maidinfo" element={<MaidInfo/>} />
+              <Route exact path="/maiddash" element={<MaidDash/>} />
               <Route exact path="/nomatch" element={<NoMatch/>} />
             </Routes>
           </div>
