@@ -13,7 +13,7 @@ const MaidDashboard = () => {
                 </div>
                 <div className='section'>
                     <div className='title is-2'>Scheduled Cleanings</div>
-                    <div className='columns is-vcentered'>
+                    <div className='columns'>
                         <div className='column is-one-third has-text-centered'>
                             <div className="card">
                                 <header className="card-header">

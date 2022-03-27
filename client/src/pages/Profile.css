@@ -1,5 +1,5 @@
 .field-label {
-    width: 25%;
+    width: 20%;
 }
 
 .control {
@@ -8,4 +8,18 @@
 
 .title {
     display: inline;
+}
+
+.maid-reviews-list {
+    margin-top: 20px;
+}
+
+.scheduled-cleanings-list {
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.review-list {
+    margin-top: 20px;
+    margin-left: 50px;
 }

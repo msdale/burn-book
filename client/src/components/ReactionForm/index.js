@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { useParams } from 'react-router-dom';
 import { ADD_REACTION } from '../../utils/mutations';
 
 const ReactionForm = ({ reviewId }) => {
@@ -36,17 +35,17 @@ const ReactionForm = ({ reviewId }) => {
     <div>
       {<p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
+        {error && <span className="ml-7">Something went wrong...</span>}
       </p>}
-      <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
+      <form className="" onSubmit={handleFormSubmit}>
         <textarea
           placeholder="Leave a reaction to this review..."
           value={reactionBody}
-          className="form-input col-12 col-md-9"
+          className="form-input"
           onChange={handleChange}
         ></textarea>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="md-3" type="submit">
           Submit
         </button>
       </form>

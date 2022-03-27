@@ -12,6 +12,9 @@ import ReviewForm from '../components/ReviewForm';
 
 import Auth from '../utils/auth';
 
+//component
+import Requests from "../components/Requests/Requests";
+
 //images
 import DashboardImage from "../assets/profile/profile.png"
 // import ReviewImage from "../assets/profile/heart.png"
@@ -65,7 +68,17 @@ const Profile = (props) => {
           </h1>
           <div className='maid-reviews-list'>
             <div>
-
+            <div className="columns is-vcentered">
+              <div className="column is-one-third has-text-centered">
+              <Requests/>
+               </div>
+               <div className="column is-one-third has-text-centered">
+              <Requests/>
+               </div>
+               <div className="column is-one-third has-text-centered">
+              <Requests/>
+               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -78,7 +91,7 @@ const Profile = (props) => {
               {/* <img src={ReviewImage} alt="review logo" className='image is-24x24'></img> */}
             </h1>
           </div>
-          <div>
+          <div className="review-list">
             <ReviewForm />
           </div>
         </div>
