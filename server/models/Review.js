@@ -19,6 +19,11 @@ const reviewSchema = new Schema(
       type: String,
       required: false
     },
+    maid_username: {
+      type: String,
+      required: true
+    },
+
     reactions: [reactionSchema]
   },
   {

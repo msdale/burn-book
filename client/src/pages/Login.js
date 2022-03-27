@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import LoginImage from '../assets/login/login.webp';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -40,36 +42,56 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
+    <main id='login-page' >
+      <div className='section is-large'>
+        <div className="columns is-mobile is-vcentered">
 
-            {error && <div>Login failed</div>}
+          <div className="column is-half">
+            <figure className="image is-4x3 is-inline-block">
+              <img src={LoginImage} alt="cleaning the kitchen"/>
+            </figure>
+          </div>
+
+          <div id='login-form' className='column is-half'>
+            <div className='title is-1'>Welcome Back!</div>
+
+            <form onSubmit={handleFormSubmit}>
+              <div className='field'>
+                <p className='control'>
+                  <input
+                    className="input"
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    id="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                />
+                </p>
+              </div>
+              <div className='field'>
+                <p className='control'>
+                  <input
+                    className="input"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    id="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                </p>
+              </div>
+              <div className='field'>
+                <p className='control'>
+                  <button className="button is-info" type="submit">
+                    Login
+                  </button>
+                </p>
+                <a href="/signup" className="has-text-link is-underlined">No account? Sign up today!</a>
+              </div>
+          </form>
+            {error && <div>Login failed</div>}   
           </div>
         </div>
       </div>
