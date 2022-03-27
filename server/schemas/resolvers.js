@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review } = require('../models');
+const { User, Review, Maid } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -28,6 +28,16 @@ const resolvers = {
         .populate('friends')
         .populate('reviews');
     },
+    maids: async () => {
+      return User.find()
+        .populate('reviews')
+        .populate('friends');
+    },
+    maid: async (parent, { username }) => {
+      return User.findOne({ username })
+        .populate('friends')
+        .populate('reviews');
+    },
     reviews: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Review.find(params).sort({ createdAt: -1 });
@@ -43,6 +53,11 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addMaid: async (parent, args) => {
+      const maid = await Maid.create(args);
+
+      return { maid };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
