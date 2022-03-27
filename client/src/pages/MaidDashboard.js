@@ -17,12 +17,12 @@ const MaidDashboard = () => {
                         <div className='column is-one-third has-text-centered'>
                             <div className="card">
                                 <header className="card-header">
-                                    <p className="card-header-title">
+                                    <p className="card-header-title has-text-link">
                                         4/1/2022 @ 1pm
                                     </p>
                                 </header>
-                                <div class="card-content">
-                                    <div class="content">
+                                <div className="card-content">
+                                    <div className="content">
                                         Sue Smith
                                         <br/>
                                         Partial clean
@@ -30,21 +30,21 @@ const MaidDashboard = () => {
                                         123 Main St
                                     </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <a href="#" class="card-footer-item">Contact</a>
-                                    <a href="#" class="card-footer-item">Cancel</a>
+                                <footer className="card-footer">
+                                    <a href="#" className="card-footer-item has-background-link has-text-white">Contact</a>
+                                    <a href="#" className="card-footer-item has-background-danger has-text-white">Cancel</a>
                                 </footer>
                             </div>
                         </div>
                         <div className='column is-one-third has-text-centered'>
                         <div className="card">
                                 <header className="card-header">
-                                    <p className="card-header-title">
+                                    <p className="card-header-title has-text-link">
                                         4/3/2022 @ 10am
                                     </p>
                                 </header>
-                                <div class="card-content">
-                                    <div class="content">
+                                <div className="card-content">
+                                    <div className="content">
                                         Danny Davito
                                         <br/>
                                         Full clean
@@ -52,21 +52,21 @@ const MaidDashboard = () => {
                                         654 First St.
                                     </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <a href="#" class="card-footer-item">Contact</a>
-                                    <a href="#" class="card-footer-item">Cancel</a>
+                                <footer className="card-footer">
+                                    <a href="#" className="card-footer-item has-background-link has-text-white">Contact</a>
+                                    <a href="#" className="card-footer-item has-background-danger has-text-white">Cancel</a>
                                 </footer>
                             </div>
                         </div>
                         <div className='column is-one-third has-text-centered'>
                         <div className="card">
                                 <header className="card-header">
-                                    <p className="card-header-title">
+                                    <p className="card-header-title has-text-link">
                                         4/5/2022 @ 8am
                                     </p>
                                 </header>
-                                <div class="card-content">
-                                    <div class="content">
+                                <div className="card-content">
+                                    <div className="content">
                                         Jane Doe
                                         <br/>
                                         Move-Out clean
@@ -74,9 +74,9 @@ const MaidDashboard = () => {
                                         789 Electric Ave.
                                     </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <a href="#" class="card-footer-item">Contact</a>
-                                    <a href="#" class="card-footer-item">Cancel</a>
+                                <footer className="card-footer">
+                                    <a href="#" className="card-footer-item has-background-link has-text-white">Contact</a>
+                                    <a href="#" className="card-footer-item has-background-danger has-text-white">Cancel</a>
                                 </footer>
                             </div>
                         </div>
@@ -84,9 +84,21 @@ const MaidDashboard = () => {
                 </div>
                 <div className='section has-background-info-light'>
                     <div className='title is-2'>Client Feedback</div>
+                    <div className="container">
+                        <div className="notification has-background-primary-light">
+                            NEW: Sally did a wonderful job and went above and beyond. Thank you Sparkling Spaces for a super clean home! (Johnny C.)
+                        </div>
+                        <div className="notification has-background-info-light">
+                            I love Tuesdays because it means Sally will be here to refresh our home. She provides fast and efficient service and is always polite. Love Sparkling Spaces and cannot recommend them enough. (Liv K.)
+                        </div>
+                        <div className="notification has-background-info-light">
+                            This was my first experience and it could not have been mor enjoyable - coming home to a freshly cleaned home is the best feeling. Thank you Sally! (Annie M.)
+                        </div>
+                    </div>
                 </div>
                 <div className='section'>
                     <div className='title is-2'>My Rating</div>
+                    <div className='title is-3 has-text-centered'>Overall: 4.5/5 Stars</div>
                 </div>
                 <div className='section'>
                     <div className='columns is-vcentered'>
