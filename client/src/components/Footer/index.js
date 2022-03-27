@@ -4,11 +4,11 @@ function Footer() {
     return (
         <div className='page-container'>
             <div className='content-wrap'>
-                <div className='footer has-text-centered is-dark'>
-                    <div className='content has-text-centered'>
-                        <div className="columns is-mobile is-centered">
-                            <div className="column">
-                                <h4 className='title has-text-centered'>
+                <div className='footer has-text-centered has-background-link has-text-light'>
+                    <div className='content has-text-centered '>
+                        <div className="columns is-mobile is-centered ">
+                            <div className="column has-text-light">
+                                <h4 className='title has-text-centered has-text-light'>
                                     Sparkling Spaces
                                 </h4>
                                 <div className='list'>
@@ -22,7 +22,7 @@ function Footer() {
                                 </div>
                             </div>
                             <div className="column">
-                                <h4 className='title has-text-centered'>MERN Project by</h4>
+                                <h4 className='title has-text-centered has-text-light'>MERN Project by</h4>
                                 <div className='list'>
                                     <ul>
                                         <div className='list-item'>
@@ -36,7 +36,7 @@ function Footer() {
                                 </div>
                             </div>
                             <div className="column">
-                                <h4 className='title has-text-centered'>Corporate</h4>
+                                <h4 className='title has-text-centered has-text-light'>Corporate</h4>
                                 <div className='list'>
                                     <ul>
                                         <div className='list-item'>

@@ -40,7 +40,7 @@ const Signup = () => {
 
   return (
     <main id='signup-page'>
-      <div className='section is-large'>
+      <div className='section is-medium'>
         <div className="columns is-mobile is-vcentered">
 
           <div className="column is-half">

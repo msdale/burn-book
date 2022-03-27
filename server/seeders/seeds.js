@@ -1,11 +1,12 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Review, User } = require('../models');
+const { Review, User, Maid } = require('../models');
 
 db.once('open', async () => {
   await Review.deleteMany({});
   await User.deleteMany({});
+  await Maid.deleteMany({});
 
   // create user data
   const createdUsers = [];
@@ -36,39 +37,87 @@ db.once('open', async () => {
     await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
   }*/
 
-  // create reviews
-  let createdReviews = [];
-  for (let i = 0; i < 100; i += 1) {
-    const reviewText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  // create reactions
+  /*  for (let i = 0; i < 100; i += 1) {
+      const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.length);
+      const { username } = createdUsers[randomUserIndex];
+  
+      const randomReviewIndex = Math.floor(Math.random() * createdReviews.length);
+      const { _id: reviewId } = createdReviews[randomReviewIndex];
+  
+      await Review.updateOne(
+        { _id: reviewId },
+        { $push: { reactions: { reactionBody, username } } },
+        { runValidators: true }
+      );
+    }*/
 
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.length);
-    const { _id, username } = createdUsers[randomUserIndex];
+  /*************/
+  /*  MAIDS    */
+  /*************/
 
-    const review = await Review.create({ reviewText });
-
-    const updatedUser = await User.updateOne(
-      { _id: _id },
-      { $push: { reviews: review._id } }
-    );
-    createdReviews.push(review);
+  const maidSeed = [
+    {
+      name: 'Bubbly Brenda',
+      maid_username: 'bbrenda',
+    },
+    {
+      name: 'Cleaning Cindy',
+      maid_username: 'ccindy',
+    },
+    {
+      name: 'Sparkling Sarah',
+      maid_username: 'ssarah',
+    },
+    {
+      name: 'Mopping Mary',
+      maid_username: 'mmary',
+    },
+    {
+      name: 'Dust-Away Daryl',
+      maid_username: 'ddaryl',
+    },
+  ];
+  const createdMaids = [];
+  for (let i = 0; i < maidSeed.length; i += 1) {
+    createdMaids.push(maidSeed[i]);
+    const maid = await Maid.create(maidSeed[i]);
   }
 
-  // create reactions
-/*  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  /****************/
+  /*  Reviews     */
+  /****************/
+  for (let i = 0; i < 50; i++) {
+    let reviewText;
+    do {
+      reviewText = faker.random.words(Math.floor(Math.random() * 50));
+    } while (reviewText.length <= 10 || reviewText.length >= 280);
 
+    // get a random user
     const randomUserIndex = Math.floor(Math.random() * createdUsers.length);
     const { username } = createdUsers[randomUserIndex];
 
-    const randomReviewIndex = Math.floor(Math.random() * createdReviews.length);
-    const { _id: reviewId } = createdReviews[randomReviewIndex];
+    const randomMaidIndex = Math.floor(Math.random() * createdMaids.length);
+    const { maid_username } = createdMaids[randomMaidIndex];
 
-    await Review.updateOne(
-      { _id: reviewId },
-      { $push: { reactions: { reactionBody, username } } },
-      { runValidators: true }
+    const createdReview = await Review.create({
+      reviewText: reviewText,
+      maid_username: maid_username,
+      username: username,
+      createdAt: Date.now(),
+    });
+
+    await Maid.updateOne(
+      { maid_username: maid_username },
+      { $push: { reviews: createdReview } }
     );
-  }*/
+    await User.updateOne(
+      { username: username },
+      { $push: { reviews: createdReview } }
+    );
+  }
 
   console.log('all done!');
   process.exit(0);
