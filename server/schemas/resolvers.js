@@ -33,8 +33,8 @@ const resolvers = {
         .populate('reviews')
         .populate('friends');
     },
-    maid: async (parent, { username }) => {
-      return Maid.findOne({ username })
+    maid: async (parent, { maid_username }) => {
+      return Maid.findOne({ maid_username })
         .populate('friends')
         .populate('reviews');
     },

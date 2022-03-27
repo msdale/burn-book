@@ -84,7 +84,9 @@ db.once('open', async () => {
 
   for (let i = 0; i < maidSeed.length; i += 1) {
     createdMaids.push(maidSeed[i]);
+    const maid = await Maid.create(maidSeed[i]);
   }
+
 
   /****************/
   /*  Reviews     */
