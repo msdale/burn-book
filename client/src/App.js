@@ -18,6 +18,9 @@ import NoMatch from './pages/NoMatch';
 import SingleReview from './pages/SingleReview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Maidlist from './pages/Maidlist';
+import MaidInfo from './pages/MaidInfo';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -51,6 +54,9 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/review/:id" component={SingleReview} />
+              <Route exact path="/maidlist" component={Maidlist} />
+              <Route exact path="/maidinfo" component={MaidInfo} />
+
 
               <Route component={NoMatch} />
             </Switch>

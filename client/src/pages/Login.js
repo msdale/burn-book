@@ -42,7 +42,7 @@ const Login = (props) => {
   };
 
   return (
-    <main id='login-page'>
+    <main id='login-page' >
       <div className='section is-large'>
         <div className="columns is-mobile is-vcentered">
 
