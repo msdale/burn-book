@@ -3,7 +3,6 @@ import {Link } from 'react-router-dom';
 import '../index.css';
 
 // Image Imports!
-import Logo from '../assets/logo/logo.png';
 import HeaderImg from '../assets/header/clean.jpg';
 import About1 from '../assets/about/about1.png';
 import About2 from '../assets/about/about2.png';
@@ -26,7 +25,7 @@ export default function Home() {
                     <div className="subtitile is-5 p-2">
                         Your home will be cleaned to your higest expectations by trained professionals at surprisingly affordable rates. Your home and your priorities. We take pride in providing cleaning services that match your needs and your budget. It is time to discover the magic of Sparkling Spaces. 
                     </div>
-                    <Link to='login'><button className="button is-info is-medium m-2">Login to Schedule</button></Link>
+                    <Link to='login'><button className="button is-danger is-medium m-2">Login to Schedule</button></Link>
                 </div>
                 <div className="column is-two-thirds is-centered">
                     <figure className="image is-5by3 m-6">
@@ -39,7 +38,8 @@ export default function Home() {
 
     const About = () => {
         return (
-            <div id="about" className="section is-large has-background-info-light">
+            <div id="about" className="section is-medium ">
+                <hr/>
                 <div className='title is-2 has-text-centered'>
                 Sparkling Spaces provides residential <br/> cleaning services to the Orlando, FL area!
                 </div>
@@ -49,21 +49,21 @@ export default function Home() {
                             <img src={About1} alt="cleaning supplies"/>
                         </figure>
                         <div className='title is-4'>We Supply Everything</div>
-                        <div className='subtitle is-5'>Sparkling Spaces blah blah blah</div>
+                        <div className='subtitle is-5'>No hassle or extra charges</div>
                     </div>
                     <div className='column is-one-third is-centered has-text-centered'>
                         <figure className="image is-128x128 is-inline-block">
                             <img src={About2} alt="people mopping"/>
                         </figure>
-                        <div className='title is-4'>We Supply Everything</div>
-                        <div className='subtitle is-5'>Sparkling Spaces blah blah blah</div>
+                        <div className='title is-4'>Reliable Staff</div>
+                        <div className='subtitle is-5'>Our maids put your home first</div>
                     </div>
                     <div className='column is-one-third is-centered has-text-centered'>
                         <figure className="image is-128x128 is-inline-block">
                             <img src={About3} alt="three stars"/>
                         </figure>
-                        <div className='title is-4'>We Supply Everything</div>
-                        <div className='subtitle is-5'>Sparkling Spaces blah blah blah</div>
+                        <div className='title is-4'>Best Rated in Orlando</div>
+                        <div className='subtitle is-5'>Featured in Good Homes 2020</div>
                     </div>
                 </div>
             </div>
@@ -72,26 +72,31 @@ export default function Home() {
 
     const Rates = () => {
         return (
-            <div id="rates" className="section is-large">
+            <div id="rates" className="section is-small">
+                <hr/>
                 <div className='title is-2 has-text-centered'>Rates</div>
-                <div className='subtitle is-5 has-text-centered'>
-                Price is an accurate estimate based on standard scope of work. Upon booking, a maid will work with you to create a custom-made cleaning list to make sure your priorities are met.
+                <div className='subtitle is-5 has-text-centered '>
+                Price is an accurate estimate based on standard scope of work. Upon booking, a maid will work with you <br/>
+                to create a custom-made cleaning list to make sure your priorities are met.
                 </div> 
                 <div className='title is-3 has-text-centered'>Average Cleaning Times:</div>
                 <div className='subtitle is-5 has-text-centered'>
                 2 Hours: 1-2 Bedrooms <br/>4 Hours: 2-3 Bedrooms<br/>6 Hours: 3-4 Bedrooms
                 </div> 
                 <div className='subtitle is-5 has-text-centered'>
-                Our rates are an estimate and may vary depending upon consultation to ensure we meet your expectations. Currently we are only doing 2-Hour appointments for 99$.
-                </div> 
+                Our rates are an estimate and may vary depending upon consultation to ensure we meet your expectations. <br/>
+                Currently we are only doing 2-Hour appointments for 99$. <br/>
+               </div> 
             </div>
         )
     }
 
     const Testimonials = () => {
         return (
-            <div id="testimonials" className="section is-large has-background-info-light">
-                <div className='title is-2 has-text-centered'>
+            <div id="testimonials" className="section">
+                                <hr/>
+
+                <div className='title is-2 has-text-centered '>
                 What Our Customers Say
                 </div>
                 <div className='subtitle is-5 has-text-centered'>

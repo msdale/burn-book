@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bulma/css/bulma.min.css';
+import "./Header.css"
 import Auth from '../../utils/auth';
 //import images
 import Logo from "../../assets/header/logo.png"
@@ -11,7 +12,7 @@ const Header = () => {
   };
   return (
     <header>
-      <nav className="navbar is-dark">
+      <nav className="navbar is-link has-text-light">
         {Auth.loggedIn() ? (
           <>
             <div className='navbar-brand'>
@@ -24,9 +25,13 @@ const Header = () => {
               <Link to="/profile" className='navbar-item'>
                   Profile
                 </Link>
-                <Link to="/" onClick={logout} className='navbar-item'>
-                  Logout
+                <Link to="/maidlist" className='navbar-item'>
+                  Maid Lists
                 </Link>
+                <Link to="/" onClick={logout} className='navbar-item'>
+                  <strong>Logout</strong>
+                </Link>
+
               </div>
             </div>
           </>
@@ -39,12 +44,14 @@ const Header = () => {
             </div>
             <div className='navbar-menu'>
               <div className='navbar-end'>
-                <Link to="/login" className='navbar-item'>
-                  Login
-                </Link>
-                <Link to="/signup" className='navbar-item'>
-                  Sign Up
-                </Link>
+              <div class="buttons">
+          <a className="button is-link" href="/signup">
+            <strong>Sign up</strong>
+          </a>
+          <a className="button is-primary" href="/login">
+            <strong>Log in</strong>
+          </a>
+        </div>
               </div>
             </div>
           </>
