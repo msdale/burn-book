@@ -12,7 +12,7 @@ const typeDefs = gql`
 
   type Maid {
     _id: ID
-    username: String
+    maid_username: String
     name: String
     friendCount: Int
     reviews: [Review]
@@ -24,6 +24,7 @@ const typeDefs = gql`
     reviewText: String
     createdAt: String
     username: String
+    maid_username: String
     reactionCount: Int
     reactions: [Reaction]
   }
@@ -45,7 +46,7 @@ const typeDefs = gql`
     users: [User]
     maids: [Maid]
     user(username: String!): User
-    maid(username: String!): Maid
+    maid(maid_username: String!): Maid
     reviews(username: String): [Review]
     review(_id: ID!): Review
   }
@@ -53,7 +54,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addMaid(username: String!, name: String!): Maid
+    addMaid(maid_username: String!, name: String!): Maid
     addReview(reviewText: String!): Review
     addReaction(reviewId: ID!, reactionBody: String!): Review
     addFriend(friendId: ID!): User
