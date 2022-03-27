@@ -3,7 +3,6 @@ import { Redirect, useParams } from 'react-router-dom';
 
 import ReviewList from '../components/ReviewList';
 import FriendList from '../components/FriendList';
-import ReviewForm from '../components/ReviewForm';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';

@@ -1,7 +1,10 @@
 const faker = require('faker');
+const bcrypt = require('bcrypt');
 
 const db = require('../config/connection');
 const { Review, User } = require('../models');
+
+const SALT_ROUNDS = 10;
 
 db.once('open', async () => {
   await Review.deleteMany({});
@@ -10,10 +13,13 @@ db.once('open', async () => {
   // create user data
   const createdUsers = [];
 
+  const password = await bcrypt.hash('password123', SALT_ROUNDS);
+
   for (let i = 0; i < 50; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
-    const password = faker.internet.password();
+
+     createdUsers.push({ username, email, password });
 
     const user = await User.create({ username, email, password });
     createdUsers.push(user);
