@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_REVIEW} from '../../utils/mutations';
+import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
+import "./ReviewForm.css"
+
+//images
+// import ReviewImage from "../../assets/profile/review.jpg"
 
 const ReviewForm = () => {
   const [reviewText, setText] = useState('');
@@ -57,22 +61,25 @@ const ReviewForm = () => {
   };
 
   return (
-    <div>
-      {console.log("CHARACTER COUNT: " + characterCount)}
-      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
-      <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
-        <textarea
-          placeholder="Here's my new review..."
-          value={reviewText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
+    <div className='review-container'>
+      <form className="field" onSubmit={handleFormSubmit}>
+        <div className='field-input '>
+          <label className="label">Here's what I thought... </label>
+          <div className="control">
+            <input className="input" type="text" placeholder="Everything was great!" onChange={handleChange} value={reviewText}>
+            </input>
+          </div>
+        </div>
+        {console.log("CHARACTER COUNT: " + characterCount)}
+        <p className={`${characterCount === 280 || error ? 'text-error' : ''}`}>
+          Character Count: {characterCount}/280 <br />
+          {error && <span className=""> Something went wrong...</span>}
+        </p>
+        <div>
+          <button className="button control is-danger" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
