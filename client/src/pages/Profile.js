@@ -14,13 +14,14 @@ import Auth from '../utils/auth';
 
 //images
 import DashboardImage from "../assets/profile/profile.png"
+// import ReviewImage from "../assets/profile/heart.png"
 
 const Profile = (props) => {
   var loggedIn = Auth.loggedIn()
   const navigate = useNavigate()
   console.log("LOGIN STATUS " + loggedIn);
   if (!loggedIn) { navigate("/login") }
-  
+
   return (
     <main>
       <div className='page-container'>
@@ -38,9 +39,9 @@ const Profile = (props) => {
             <div className='calendar'>
             </div>
             <form>
-            <div className="field ">
-              <div className="field-label">
-              <p className="control">
+              <div className="field ">
+                <div className="field-label">
+                  <p className="control">
                     <input
                       className="input"
                       placeholder="date"
@@ -50,10 +51,10 @@ const Profile = (props) => {
                     />
                   </p>
                   <button className="button is-primary">
-                      Submit
-                    </button>
-              </div>
+                    Submit
+                  </button>
                 </div>
+              </div>
             </form>
           </div>
         </div>
@@ -64,20 +65,24 @@ const Profile = (props) => {
           </h1>
           <div className='maid-reviews-list'>
             <div>
-              
-              </div>
+
+            </div>
           </div>
         </div>
         <hr />
+        {/* maid rating container */}
         <div className='maid-rating-container'>
-          <h1 className='title'>
-            Reviews Left
-            <ReviewForm/>
-          </h1>
-          <div className='maid-rating-list'>
+          <div className="title">
+            <h1>
+              Leave Some Love
+              {/* <img src={ReviewImage} alt="review logo" className='image is-24x24'></img> */}
+            </h1>
+          </div>
+          <div>
+            <ReviewForm />
           </div>
         </div>
-      </div>    
+      </div>
     </main>
   );
 };

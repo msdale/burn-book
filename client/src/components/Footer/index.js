@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Footer.css'
 function Footer() {
     return (
@@ -42,6 +43,7 @@ function Footer() {
                                         <div className='list-item'>
                                             {/* Filler List Items */}
                                             <li>Customer Support</li>
+                                            <li className='has-text-white'><Link to={"./maiddash"}>Employee Dashboard</Link></li>
                                             <li>Company Policies</li>
                                             <li>Contact Us</li>
                                         </div>
