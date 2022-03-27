@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./Profile.css"
 
 // import ReviewList from '../components/ReviewList';
 // import FriendList from '../components/FriendList';
@@ -37,8 +38,9 @@ const Profile = (props) => {
             <div className='calendar'>
             </div>
             <form>
-            <div className="field">
-                  <p className="control">
+            <div className="field ">
+              <div className="field-label">
+              <p className="control">
                     <input
                       className="input"
                       placeholder="date"
@@ -50,6 +52,8 @@ const Profile = (props) => {
                   <button className="button is-info">
                       Submit
                     </button>
+              </div>
+                  
                 </div>
                 
             </form>
