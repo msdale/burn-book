@@ -6,6 +6,7 @@ const { Review, User, Maid } = require('../models');
 db.once('open', async () => {
   await Review.deleteMany({});
   await User.deleteMany({});
+  await Maid.deleteMany({});
 
   // create user data
   const createdUsers = [];
