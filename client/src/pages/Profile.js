@@ -27,7 +27,7 @@ const Profile = (props) => {
 
   return (
     <main>
-      <div className='page-container'>
+      <div className='page-container-profile has-background-white-bis '>
         <section className="hero is-small is-light">
           <div className="hero-body">
             <img src={DashboardImage} alt="dashboard logo"></img>
@@ -42,7 +42,7 @@ const Profile = (props) => {
             <div className='calendar'>
             </div>
             <form>
-              <div className="field ">
+              <div className="field date-line">
                 <div className="field-label">
                   <p className="control">
                     <input

@@ -1,9 +1,9 @@
-.field-label {
-    width: 20%;
+.control {
+    margin-bottom: 20px;
 }
 
-.control {
-    margin-bottom: 25px;
+.date-line {
+    width: 25%;
 }
 
 .title {
@@ -19,7 +19,14 @@
     margin-left: 70px;
 }
 
+.page-container-profile  {
+    padding: 0 70px;
+}
+
+
 .review-list {
     margin-top: 20px;
     margin-left: 50px;
+
+
 }
