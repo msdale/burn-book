@@ -29,12 +29,12 @@ const resolvers = {
         .populate('reviews');
     },
     maids: async () => {
-      return User.find()
+      return Maid.find()
         .populate('reviews')
         .populate('friends');
     },
     maid: async (parent, { username }) => {
-      return User.findOne({ username })
+      return Maid.findOne({ username })
         .populate('friends')
         .populate('reviews');
     },
