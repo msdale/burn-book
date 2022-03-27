@@ -57,21 +57,7 @@ db.once('open', async () => {
   /*************/
   /*  MAIDS    */
   /*************/
-  const maids = [];
 
-  for (let i = 0; i < 5; i += 1) {
-    let name;
-    let nameArr;
-
-    do {
-      name = faker.name.findName();
-      nameArr = name.split(' ');
-    } while (nameArr.length != 2)
-
-    const maid_username = faker.internet.userName();
-
-    maids.push({ name, maid_username });
-  }
   const maidSeed = [
     {
       name: 'Bubbly Brenda',
@@ -94,11 +80,11 @@ db.once('open', async () => {
       maid_username: 'ddaryl',
     },
   ];
-
-  const createdMaids = await Maid.collection.insertMany([
-    ...maids,
-    ...maidSeed
-  ]);
+  const createdMaids = [];
+  for (let i = 0; i < maidSeed.length; i += 1) {
+    createdMaids.push(maidSeed[i]);
+    const maid = await Maid.create(maidSeed[i]);
+  }
 
   /****************/
   /*  Reviews     */
