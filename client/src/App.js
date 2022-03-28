@@ -57,7 +57,7 @@ function App() {
               <Route exact path="/profile" element={<Profile/>} />
               <Route exact path="/review/:id" element={<SingleReview/>} />
               <Route exact path="/maidlist" element={<Maidlist/>} />
-              <Route exact path="/maidinfo" element={<MaidInfo/>} />
+              <Route exact path="/maidinfo/:maid_username" element={<MaidInfo/>} />
               <Route exact path="/maiddash" element={<MaidDash/>} />
               <Route exact path="/nomatch" element={<NoMatch/>} />
             </Routes>

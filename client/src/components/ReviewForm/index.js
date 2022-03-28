@@ -63,10 +63,10 @@ const ReviewForm = () => {
   return (
     <div className='review-container'>
       <form className="field" onSubmit={handleFormSubmit}>
-        <div className='field-input '>
+        <div className='field-input'>
           <label className="label">Here's what I thought... </label>
           <div className="control">
-            <input className="input" type="text" placeholder="Everything was great!" onChange={handleChange} value={reviewText}>
+            <input className="input is-link" type="text" placeholder="Everything was great!" onChange={handleChange} value={reviewText}>
             </input>
           </div>
         </div>
@@ -76,7 +76,7 @@ const ReviewForm = () => {
           {error && <span className=""> Something went wrong...</span>}
         </p>
         <div>
-          <button className="button control is-danger" type="submit">
+          <button className="button control is-link is-outlined is-rounded" type="submit">
             Submit
           </button>
         </div>
