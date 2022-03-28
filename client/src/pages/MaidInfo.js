@@ -27,8 +27,8 @@ function MaidInfo(props) {
         <div className='maid-into-container has-content is-centered'>
           <section className=" section more-about-me">
             <div className="card">
-              <header class="card-header ">
-                <p class="card-header-title">
+              <header className="card-header ">
+                <p className="card-header-title">
                   More About Me
                 </p>
               </header>
@@ -69,7 +69,7 @@ function MaidInfo(props) {
                   “Amazing Service. {maid.name} treats every home like her own.”
                 </p>
               </div>
-              <p class="subtitle">
+              <p className="subtitle">
                 KJenner
               </p>
             </div>
