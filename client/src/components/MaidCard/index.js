@@ -9,7 +9,6 @@ const MaidCard = ({ maids }) => {
 
   console.log(maids)
   return (
-    // card1
     <div className='card-holder'>
       {maids &&
         maids.slice(0, 3).map(maid => (
