@@ -11,9 +11,11 @@
 ## Table of Contents:  
 * [Description](#Description)
 * [Technologies used](#technologies-used)
-      - [Client](#client)
-      - [Server](#server)
-      - [Database](#database)    
+
+    - [Client](#client)
+     - [Server](#server)
+    - [Database](#database)    
+
 * [NPM Packages](#npm-packages)  
 * [Installation](#Installation) 
 * [Usage](#Usage)          
@@ -65,13 +67,14 @@ To use locally, run  `npm run seed` from your terminal but in the root of the di
 
 To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application.
 
-The deployed application can be used at [Heroku]() 
+The deployed application can be used at [Heroku](https://sparkling-spaces.herokuapp.com/) 
 
 You can also use `npm start` while in the client folder to run items as well as in the server folder you can use `npm run watch`. To build for production ensure you run `npm run build` so that it produces a build for deployment. 
 
 ## Images
-<img src="">      
-<img src="https://github.com/alexisn84/holy-grail/blob/main/client/public/dashboard.png">
+<img src="https://github.com/msdale/burn-book/blob/feature/alexis3/client/public/Homepage.png">      
+<img src="https://github.com/msdale/burn-book/blob/feature/alexis3/client/public/UserDashboard.png">
+<img src="https://github.com/msdale/burn-book/blob/feature/alexis3/client/public/Maid%20List.png">
 
 ## License Details 
 This project is MIT licensed.
