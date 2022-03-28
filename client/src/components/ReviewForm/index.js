@@ -62,11 +62,12 @@ const ReviewForm = () => {
 
   return (
     <div className='review-container'>
+      <h1 className='title title-css'>Leave Some Love</h1>
       <form className="field" onSubmit={handleFormSubmit}>
         <div className='field-input'>
-          <label className="label">Here's what I thought... </label>
+          <label className="label label-css">Here's what I thought... </label>
           <div className="control">
-            <input className="input is-link" type="text" placeholder="Everything was great!" onChange={handleChange} value={reviewText}>
+            <input className="input is-link review-input" type="text" placeholder="Everything was great!" onChange={handleChange} value={reviewText}>
             </input>
           </div>
         </div>
