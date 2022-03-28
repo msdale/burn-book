@@ -18,8 +18,8 @@ function Requests() {
         </div>
     </div>
     <footer className="card-footer">
-        <a href="/nomatch" className="card-footer-item has-background-link has-text-white">Confirm</a>
-        <a href="/nomatch" className="card-footer-item has-background-danger has-text-white">Cancel</a>
+        <a href="/nomatch" className="card-footer-item">Change</a>
+        <a href="/nomatch" className="card-footer-item has-text-danger">Cancel</a>
     </footer>
 </div>
   )

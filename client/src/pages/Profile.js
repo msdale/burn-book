@@ -35,7 +35,7 @@ const Profile = (props) => {
         </section>
         <hr />
         <div className='scheduled-cleanings-container'>
-          <h1 className='title'>
+          <h1 className='title is-3'>
             Appointment Requests
           </h1>
           <div className='scheduled-cleanings-list'>
@@ -55,7 +55,7 @@ const Profile = (props) => {
                       id="date"
                     />
                   </p>
-                  <button className="button is-primary">
+                  <button className="button is-link is-outlined is-rounded">
                     Submit
                   </button>
                 </div>

@@ -53,10 +53,10 @@ const Signup = () => {
           <div className='title is-1'>Create Account</div>
         
             <form onSubmit={handleFormSubmit}>
-              <div className='field'>
+              <div className='field mt-4'>
                 <p className='control'>
                   <input
-                    className="input"
+                    className="input is-link is-rounded"
                     placeholder="Enter A Username"
                     name="username"
                     type="username"
@@ -69,7 +69,7 @@ const Signup = () => {
               <div className='field'>
                 <p className='control'>
                   <input
-                    className="input"
+                    className="input is-link is-rounded"
                     placeholder="Enter Your Email"
                     name="email"
                     type="email"
@@ -82,7 +82,7 @@ const Signup = () => {
               <div className='field'>
                 <p className='control'>
                   <input
-                    className="input"
+                    className="input is-link is-rounded"
                     placeholder="******"
                     name="password"
                     type="password"
@@ -94,7 +94,7 @@ const Signup = () => {
               </div>
               <div className='field'>
                 <p className='control'>
-                  <button className="button is-info" type="submit">
+                  <button className="button is-link is-rounded is-outlined" type="submit">
                     Login
                   </button>
                 </p>

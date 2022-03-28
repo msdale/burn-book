@@ -48,7 +48,7 @@ const Header = () => {
           <a className="button is-link" href="/signup">
             <strong>Sign up</strong>
           </a>
-          <a className="button is-primary" href="/login">
+          <a className="button is-primary is-rounded" href="/login">
             <strong>Log in</strong>
           </a>
         </div>
