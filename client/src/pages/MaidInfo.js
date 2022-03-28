@@ -1,4 +1,7 @@
-import React from 'react';
+import React from 'react'
+import Maid2 from "../assets/card/maid2.jpg"
+import "./MaidInfo.css";
+
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MAID, QUERY_MAIDS } from '../utils/queries';
@@ -6,7 +9,7 @@ import { QUERY_MAID, QUERY_MAIDS } from '../utils/queries';
 import ReviewForm from '../components/ReviewForm';
 import ReivewList from '../components/ReviewList';
 
-const MaidInfo = (props) => {
+function MaidInfo(props) {
 
   const { maid_username: userParam } = useParams();
 
@@ -15,21 +18,7 @@ const MaidInfo = (props) => {
   });
 
   const maid = data?.maid || {};
-
-  return (
-    <div>
-      <div>This is the maid info</div>
-      <ReviewForm/>
-      <h2>My Reviews:</h2>
-      <ReivewList
-        reviews={maid.reviews}
-      />
-    
-import React from 'react'
-import Maid2 from "../assets/card/maid2.jpg"
-import "./MaidInfo.css";
-
-function MaidInfo() {
+  
   return (
     <div className='columns'>
       {/* coloum 1 that holds card */}
@@ -86,6 +75,13 @@ function MaidInfo() {
           </div>
         </div>
       </div>
+
+      <ReviewForm/>
+      <h2>My Reviews:</h2>
+      <ReivewList
+        reviews={maid.reviews}
+      />
+
     </div>
   )
 }
