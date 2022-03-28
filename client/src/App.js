@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bulma/css/bulma.min.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,9 +15,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import SingleThought from './pages/SingleThought';
+import SingleReview from './pages/SingleReview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Maidlist from './pages/Maidlist';
+import MaidInfo from './pages/MaidInfo';
+import MaidDash from './pages/MaidDashboard';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,15 +49,18 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/thought/:id" component={SingleThought} />
-
-              <Route component={NoMatch} />
-            </Switch>
+            <Routes>
+              <Route exact path="/" element={<Home/>} />
+              <Route exact path="/login" element={<Login/>} />
+              <Route exact path="/signup" element={<Signup/>} />
+              {/* removed params in profile */}
+              <Route exact path="/profile" element={<Profile/>} />
+              <Route exact path="/review/:id" element={<SingleReview/>} />
+              <Route exact path="/maidlist" element={<Maidlist/>} />
+              <Route exact path="/maidinfo/:maid_username" element={<MaidInfo/>} />
+              <Route exact path="/maiddash" element={<MaidDash/>} />
+              <Route exact path="/nomatch" element={<NoMatch/>} />
+            </Routes>
           </div>
           <Footer />
         </div>

@@ -3,8 +3,8 @@
   --secondary: #99f7f2;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
-  --light: #e1f5f4;
-  --dark: #6c7575;
+  --light: #e8f5e1;
+  --dark: #756c70;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -31,7 +31,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: white;
 }
 
 h1,
@@ -89,16 +89,16 @@ nav {
   justify-content: center;
 }
 
-nav a {
+/* nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
-}
+} */
 
-nav a:hover {
+/* nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
-}
+} */
 
 .page-title {
   text-align: center;
@@ -137,13 +137,13 @@ nav a:hover {
 }
 
 /* CARDS */
-.card {
+/* .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--dark);
-}
+} */
 
 .card-header {
   color: var(--secondary);

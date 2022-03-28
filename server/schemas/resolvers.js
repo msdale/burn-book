@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Review, Maid } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('thoughts')
+          .populate('reviews')
           .populate('friends');
 
         return userData;
@@ -19,21 +19,31 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('thoughts')
+        .populate('reviews')
         .populate('friends');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('thoughts');
+        .populate('reviews');
     },
-    thoughts: async (parent, { username }) => {
+    maids: async () => {
+      return Maid.find()
+        .populate('reviews')
+        .populate('friends');
+    },
+    maid: async (parent, { maid_username }) => {
+      return Maid.findOne({ maid_username })
+        .populate('friends')
+        .populate('reviews');
+    },
+    reviews: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Review.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id });
+    review: async (parent, { _id }) => {
+      return Review.findOne({ _id });
     }
   },
 
@@ -43,6 +53,11 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addMaid: async (parent, args) => {
+      const maid = await Maid.create(args);
+
+      return { maid };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -60,30 +75,30 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, args, context) => {
+    addReview: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const review = await Review.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
+          { $push: { reviews: review._id } },
           { new: true }
         );
 
-        return thought;
+        return review;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+    addReaction: async (parent, { reviewId, reactionBody }, context) => {
       if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        const updatedReview = await Review.findOneAndUpdate(
+          { _id: reviewId },
           { $push: { reactions: { reactionBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 
-        return updatedThought;
+        return updatedReview;
       }
 
       throw new AuthenticationError('You need to be logged in!');
