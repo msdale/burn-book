@@ -11,7 +11,6 @@ import Testimonial1 from '../assets/testimonials/testimonial1.jpg';
 import Testimonial2 from '../assets/testimonials/testimonial2.jpg';
 import Testimonial3 from '../assets/testimonials/testimonial3.jpg';
 
-
 export default function Home() {
 
     const Header = () => {

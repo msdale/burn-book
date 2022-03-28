@@ -102,6 +102,7 @@ export const QUERY_ME_BASIC = gql`
 export const QUERY_MAIDS = gql`
   query Maids {
     maids {
+      _id
       maid_username
       name
     }
@@ -113,6 +114,7 @@ query Maids($maidUsername: String!) {
   maid(maid_username: $maidUsername) {
     maid_username
     reviews {
+      _id
       maid_username
       username
       reviewText
