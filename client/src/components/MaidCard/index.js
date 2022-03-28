@@ -2,13 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./MardCard.css";
 
-
 //import images
-
 import Maid1 from "../../assets/card/maid1.jpg"
-// import Maid2 from "../assets/card/maid2.jpg"
-// import Maid3 from "../assets/card/maid3.jpg"
-
 
 const MaidCard = ({ maids }) => {
 
@@ -27,7 +22,7 @@ const MaidCard = ({ maids }) => {
             <div className="card-content">
               <div>
               <Link
-                to={`/profile/${maid.name}`}
+                to={`/maidInfo/${maid.maid_username}`}
                 style={{ fontWeight: 700 }}
               >
                 {maid.maid_username}
