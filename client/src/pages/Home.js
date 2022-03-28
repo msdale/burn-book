@@ -89,7 +89,7 @@ export default function Home() {
 
     const Testimonials = () => {
         return (
-            <div id="testimonials" className="section is-medium has-background-white has-text-centered">
+            <div id="testimonials" className="section is-medium has-background-white has-text-centered mb-6">
                 <div className='title is-2 has-text-centered'>
                 What Our Customers Say
                 </div><br/>
