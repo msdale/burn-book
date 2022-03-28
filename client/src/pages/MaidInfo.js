@@ -59,30 +59,18 @@ function MaidInfo(props) {
         </div>
       </div>
       {/* coloum 2 that holds reviews */}
-      {/* <div className='column'></div> */}
-      <div className='is-flex is-align-self-center'>
-        <div className='column'>
-          <div className="card demo-review">
-            <div className="card-content ">
-              <div className="content">
-                <p className="title">
-                  “Amazing Service. {maid.name} treats every home like her own.”
-                </p>
-              </div>
-              <p className="subtitle">
-                KJenner
-              </p>
-            </div>
+      <div className='column'>
+        <div className='review-form-container'><ReviewForm/>
           </div>
-        </div>
-      </div>
-
-      <ReviewForm/>
       <h2>My Reviews:</h2>
       <ReivewList
         reviews={maid.reviews}
-      />
-
+      /></div>
+      {/* <ReviewForm/>
+      <h2>My Reviews:</h2>
+      <ReivewList
+        reviews={maid.reviews}
+      /> */}
     </div>
   )
 }
