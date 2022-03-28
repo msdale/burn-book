@@ -9,7 +9,7 @@ const NoMatch = () => {
         </div>
         <br/>
         <div className='column is-full'>
-          <div className='title is-3'><a href="/" className='is-underlined has-text-link'>Return to Home!</a></div>
+          <div className='title is-3'><a href="/Profile" className='is-underlined has-text-link'>Return to Your Dashboard!</a></div>
           </div>
       </div>
     </div>
