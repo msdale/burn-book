@@ -44,7 +44,7 @@ const Header = () => {
             </div>
             <div className='navbar-menu'>
               <div className='navbar-end'>
-              <div class="buttons">
+              <div className="buttons">
           <a className="button is-link" href="/signup">
             <strong>Sign up</strong>
           </a>
