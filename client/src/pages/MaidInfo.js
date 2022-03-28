@@ -2,9 +2,9 @@ import React from 'react'
 import Maid2 from "../assets/card/maid2.jpg"
 import "./MaidInfo.css";
 
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MAID, QUERY_MAIDS } from '../utils/queries';
+import { QUERY_MAID } from '../utils/queries';
 
 import ReviewForm from '../components/ReviewForm';
 import ReivewList from '../components/ReviewList';
@@ -13,12 +13,13 @@ function MaidInfo(props) {
 
   const { maid_username: userParam } = useParams();
 
-  const { loading, data } = useQuery(QUERY_MAID, {
+  const { data } = useQuery(QUERY_MAID, {
     variables: { maidUsername: userParam },
   });
 
   const maid = data?.maid || {};
   
+  console.log(maid)
   return (
     <div className='columns'>
       {/* coloum 1 that holds card */}
@@ -44,8 +45,8 @@ function MaidInfo(props) {
                     </figure>
                   </div>
                   <div className="media-content">
-                    <p className="title is-4">Maria R.</p>
-                    <p className="">@mariamops</p>
+                    <p className="title is-4">{maid.name}</p>
+                    <p className="">@{maid.maid_username}</p>
                   </div>
                 </div>
                 <div className="content">
@@ -65,7 +66,7 @@ function MaidInfo(props) {
             <div className="card-content ">
               <div className="content">
                 <p className="title">
-                  “Amazing Service. Maria treats every home like her own.”
+                  “Amazing Service. {maid.name} treats every home like her own.”
                 </p>
               </div>
               <p class="subtitle">

@@ -68,6 +68,7 @@ export const QUERY_ME = gql`
         _id
         reviewText
         createdAt
+        maid_username
         reactionCount
         reactions {
           _id
@@ -95,6 +96,12 @@ export const QUERY_ME_BASIC = gql`
         _id
         username
       }
+      reviews {
+        _id
+        reviewText
+        maid_username
+        createdAt
+      }
     }
   }
 `;
@@ -113,6 +120,7 @@ export const QUERY_MAID = gql`
 query Maids($maidUsername: String!) {
   maid(maid_username: $maidUsername) {
     maid_username
+    name
     reviews {
       _id
       maid_username

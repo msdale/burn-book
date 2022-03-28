@@ -67,3 +67,12 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+
+export const ADD_REVIEW = gql`
+mutation addReview($reviewText: String!, $maidUsername: String!) {
+  addReview(reviewText: $reviewText, maid_username: $maidUsername) {
+    reviewText
+    maid_username
+  }
+}
+`;
