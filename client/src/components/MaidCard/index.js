@@ -21,7 +21,7 @@ const MaidCard = ({ maids }) => {
             <div className="card-content">
               <div>
               <Link
-                to={`/maidInfo/${maid.maid_username}`}
+                to={`/maidinfo/${maid.maid_username}`}
                 style={{ fontWeight: 700 }}
               >
                 {maid.maid_username}
@@ -30,8 +30,7 @@ const MaidCard = ({ maids }) => {
               <div> Clean Spaces, Clean Mind.
               </div>
             </div>
-            <a href="MaidInfo" className='button is-danger is-rounded learn-more'>
-              Learn More</a>
+            
           </div>
         ))}
     </div>

@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ReivewList = ({ reviews, title }) => {
-  if (!reviews.length) {
+  if (!reviews || !reviews?.length) {
     return <h3>No Reviews Yet</h3>;
   }
 
+  console.log({reviews})
   return (
     <div>
       <h3>{title}</h3>
