@@ -1,29 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css"
-
-// import ReviewList from '../components/ReviewList';
-// import FriendList from '../components/FriendList';
-import ReviewForm from '../components/ReviewForm';
-
-// import { useQuery, useMutation } from '@apollo/client';
-// import { QUERY_USER, QUERY_ME } from '../utils/queries';
-// import { ADD_FRIEND } from '../utils/mutations';
-
 import Auth from '../utils/auth';
+
+import ReviewList from '../components/ReviewList';
+
+import { useQuery } from '@apollo/client';
+import { QUERY_ME_BASIC } from '../utils/queries';
 
 //component
 import Requests from "../components/Requests/Requests";
 
 //images
 import DashboardImage from "../assets/profile/profile.png"
-// import ReviewImage from "../assets/profile/heart.png"
 
 const Profile = (props) => {
   var loggedIn = Auth.loggedIn()
   const navigate = useNavigate()
   console.log("LOGIN STATUS " + loggedIn);
   if (!loggedIn) { navigate("/login") }
+
+  const { loading, data } = useQuery(QUERY_ME_BASIC);
+  const user = data?.me || [];
 
   return (
     <main>
@@ -89,12 +87,14 @@ const Profile = (props) => {
         <div className='maid-rating-container'>
           <div className="title">
             <h1>
-              Leave Some Love
+              Previous Reviews
               {/* <img src={ReviewImage} alt="review logo" className='image is-24x24'></img> */}
             </h1>
           </div>
           <div className="review-list">
-            <ReviewForm />
+            <ReviewList 
+              reviews={user.reviews}
+            />
           </div>
         </div>
       </div>
